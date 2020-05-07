@@ -1,0 +1,52 @@
+{
+  "name": "any-gate",
+  "version": "1.0.0",
+  "description": "an NodeJS Static Web Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/** --ext '.js,.jsx'",
+    "lint-fix": "npm run lint -- --fix",
+    "prettier": "prettier --write ./src/**/*",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{jsx,txs,ts,js,json,css,md}": [
+      "npm run prettier",
+      "npm run lint-fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walker213/any-gate.git"
+  },
+  "author": "gindoki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walker213/any-gate/issues"
+  },
+  "homepage": "https://github.com/walker213/any-gate#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitlint": "^8.3.5",
+    "conventional-changelog": "^3.1.18",
+    "conventional-changelog-cli": "^2.0.31",
+    "eslint": "^6.8.0",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.2",
+    "prettier": "2.0.5"
+  }
+}
